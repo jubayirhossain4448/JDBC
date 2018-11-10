@@ -1,0 +1,229 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 4
+Server version: 5.6.40-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database bangladesh;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bangladesh         |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use bangladesh;
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table dhaka(id int(11) primary key, name varchar(25));
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_bangladesh |
++----------------------+
+| dhaka                |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into dhaka(id, name) values (1, 'Lalbag kella');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into dhaka(id, name) values (2, 'Ahsan Monjil');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from dhaka;
++----+--------------+
+| id | name         |
++----+--------------+
+|  1 | Lalbag kella |
+|  2 | Ahsan Monjil |
++----+--------------+
+2 rows in set (0.00 sec)
+
+mysql> update dhaka set name = 'lalbag kella' where id = 1;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from dhaka;
++----+--------------+
+| id | name         |
++----+--------------+
+|  1 | lalbag kella |
+|  2 | Ahsan Monjil |
++----+--------------+
+2 rows in set (0.00 sec)
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bangladesh         |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> show table bangladesh;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'bangladesh' at line 1
+mysql> show bangladesh;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'bangladesh' at line 1
+mysql> select * from bangladesh;
+ERROR 1146 (42S02): Table 'bangladesh.bangladesh' doesn't exist
+mysql> show tables;
++----------------------+
+| Tables_in_bangladesh |
++----------------------+
+| dhaka                |
++----------------------+
+1 row in set (0.02 sec)
+
+mysql> select * from division;
+ERROR 1146 (42S02): Table 'bangladesh.division' doesn't exist
+mysql> select * from dhaka;
++----+--------------+
+| id | name         |
++----+--------------+
+|  1 | lalbag kella |
+|  2 | Ahsan Monjil |
++----+--------------+
+2 rows in set (0.00 sec)
+
+mysql> use bangladesh;
+Database changed
+mysql> show tables;
++----------------------+
+| Tables_in_bangladesh |
++----------------------+
+| dhaka                |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_bangladesh |
++----------------------+
+| dhaka                |
+| division             |
++----------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from division;
++------+-------+
+| id   | name  |
++------+-------+
+|    1 | Dhaka |
++------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from division;
++------+------------+
+| id   | name       |
++------+------------+
+|    1 | Dhaka      |
+|    2 | Khulna     |
+|    3 | Rajshahi   |
+|    4 | Barishal   |
+|    5 | Sylhet     |
+|    6 | Chittagong |
++------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from division;
++------+------------+
+| id   | name       |
++------+------------+
+|    1 | Dhaka      |
+|    2 | Rangpur    |
+|    3 | Rajshahi   |
+|    4 | Barishal   |
+|    5 | Sylhet     |
+|    6 | Chittagong |
++------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from division;
++------+------------+
+| id   | name       |
++------+------------+
+|    1 | Dhaka      |
+|    2 | Rangpur    |
+|    4 | Barishal   |
+|    5 | Sylhet     |
+|    6 | Chittagong |
++------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from division;
++------+------------+
+| id   | name       |
++------+------------+
+|    1 | Dhaka      |
+|    2 | Rangpur    |
+|    4 | Barishal   |
+|    5 | Sylhet     |
+|    6 | Chittagong |
++------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from division;
++------+------------+
+| id   | name       |
++------+------------+
+|    1 | Dhaka      |
+|    2 | Rangpur    |
+|    4 | Barishal   |
+|    5 | Sylhet     |
+|    6 | Chittagong |
++------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select id, name from division where id = 5;
++------+--------+
+| id   | name   |
++------+--------+
+|    5 | Sylhet |
++------+--------+
+1 row in set (0.00 sec)
+
+mysql> select name from division where id = 6;
++------------+
+| name       |
++------------+
+| Chittagong |
++------------+
+1 row in set (0.00 sec)
+
+mysql>
